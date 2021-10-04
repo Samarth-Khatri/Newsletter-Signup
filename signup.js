@@ -40,7 +40,7 @@ app.post("/", function(req, res) {
 
   const request = https.request(url, options, function(response) {
 
-    if (response.statusCode === 20) {
+    if (response.statusCode === 200) {
       res.sendFile(__dirname + "/success.html");
     } else {
       res.sendFile(__dirname + "/failure.html");
