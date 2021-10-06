@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const request = require("request");
 const https = require("https");
+const {config} = require('./config.js'); // requiring another js file
 
 app.use(express.urlencoded({
   extended: true
@@ -31,7 +32,7 @@ app.post("/", function(req, res) {
 
   const jsonData = JSON.stringify(data);
 
-  var id = config.AUDIENCE_ID;
+  var id = config.AUDIENCE_ID;   //getting api keys from private js file
   var key = config.MY_API_KEY;
 
   const url = "https://us5.api.mailchimp.com/3.0/lists/" + id;
