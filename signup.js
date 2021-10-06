@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const request = require("request");
 const https = require("https");
-const {config} = require('./config.js'); // requiring another js file
+const {config} = require(__dirname + '/config.js'); // requiring another js file
 
 app.use(express.urlencoded({
   extended: true
