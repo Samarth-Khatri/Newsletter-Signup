@@ -31,11 +31,14 @@ app.post("/", function(req, res) {
 
   const jsonData = JSON.stringify(data);
 
-  const url = "https://us5.api.mailchimp.com/3.0/lists/3d797fcf8b";
+  var id = config.AUDIENCE_ID;
+  var key = config.MY_API_KEY;
+
+  const url = "https://us5.api.mailchimp.com/3.0/lists/" + id;
 
   const options = {
     method: "POST",
-    auth: "Samarth:79c864340aa458ce7d205ac62edc4135-us5"
+    auth: "Samarth:" + key
   }
 
   const request = https.request(url, options, function(response) {
@@ -67,7 +70,3 @@ app.post("/success", function(req, res) {
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server is up and running");
 });
-
-
-//79c864340aa458ce7d205ac62edc4135-us5 API KEY
-//3d797fcf8b Audience id
